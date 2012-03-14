@@ -23,28 +23,28 @@ Adhearsion.config do |config|
   ##
   # Use with Voxeo PRISM or other Rayo installation
   #
-  # config.punchblock.username = "" # Your XMPP JID for use with Rayo
-  # config.punchblock.password = "" # Your XMPP password
+  config.punchblock.username = "" # Your XMPP JID for use with Rayo
+  config.punchblock.password = "" # Your XMPP password
 
   ##
   # Use with Asterisk
   #
-  config.punchblock.platform = :asterisk # Use Asterisk
-  config.punchblock.username = "adhearsion" # Your AMI username
-  config.punchblock.password = "ahn123" # Your AMI password
-  config.punchblock.host = "127.0.0.1" # Your AMI host
-  config.punchblock.port = 5038 # Your AMI port
+  # config.punchblock.platform = :asterisk # Use Asterisk
+  # config.punchblock.username = "" # Your AMI username
+  # config.punchblock.password = "" # Your AMI password
+  # config.punchblock.host = "127.0.0.1" # Your AMI host
+  # config.punchblock.port = 5038 # Your AMI port
 end
 
 Adhearsion.router do
   route 'default' do
     for i in 1..8 do
-        play "digits/#{i}"
+        play "#{i}"
         sleep 2
     end
     dtmf = input 1
-    6.times do
-      play "digits/#{dtmf}"
+    5.times do
+      play "#{dtmf}"
       sleep 2
     end
   end
